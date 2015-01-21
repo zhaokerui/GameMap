@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:ui="xuewan.mapedit.layer.*" title="物品库" width="250" height="500">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:BorderContainer x="2" y="2" width="244" height="93">
+		<s:Button id="btnClass" x="158" y="4" label="添加分类"/>
+		<s:Button id="btnAdd" x="158" y="34" label="增加"/>
+		<s:Button id="btnDel" x="158" y="60" label="删除"/>
+		<s:TextInput id="txtName" x="6" y="4" width="145" prompt="分类文件夹名称"/>
+		<s:BorderContainer x="6" y="33" width="145" height="48">
+			<ui:EntityImage id="image" />
+		</s:BorderContainer>
+	</s:BorderContainer>
+	<mx:Tree id="myTree" left="2" top="97" width="244" height="365" showRoot="true"  labelField="@label" doubleClickEnabled="true"  allowMultipleSelection ="true"/>
+	
+</s:TitleWindow>

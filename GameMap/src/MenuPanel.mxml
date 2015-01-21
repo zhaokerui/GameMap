@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="62" backgroundColor="0xffffff">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			[Bindable]
+			public var mySacle:ArrayCollection = new ArrayCollection(
+				[ 	{label:"缩放:12%", sacle:0.125},
+					{label:"缩放:20%", sacle:0.2},
+					{label:"缩放:25%", sacle:0.25},
+					{label:"缩放:33%", sacle:0.33},
+					{label:"缩放:50%", sacle:0.5},
+					{label:"缩放:66%", sacle:0.66},
+					{label:"缩放:70%", sacle:0.7},
+					{label:"缩放:80%", sacle:0.8},
+					{label:"缩放:90%", sacle:0.9},
+					{label:"缩放:100%", sacle:1},
+					{label:"缩放:200%", sacle:2},
+					{label:"缩放:300%", sacle:3},
+					{label:"缩放:400%", sacle:4},
+					{label:"缩放:600%", sacle:6} ]);
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:BorderContainer x="2" y="2" width="149" height="58">
+		<s:Button id="btnNew" x="3" y="6" label="新建"/>
+		<s:Button id="btnOpen" x="3" y="30" label="打开"/>
+		<s:Button id="btnSave" x="75" y="6" label="保存"/>
+		<s:Button id="btnPublish" x="75" y="30" label="发布"/>
+	</s:BorderContainer>
+	<s:BorderContainer x="154" y="2" width="222" height="58">
+		<s:RadioButton id="radGrid1" x="2" y="7" label="路点" groupName="radGrid" value="1"/>
+		<s:RadioButton id="radGrid2" x="46" y="7" label="障碍" groupName="radGrid" value="2"/>
+		<s:RadioButton id="radGrid3" x="90" y="7" label="透明" groupName="radGrid" value="3"/>
+		<s:RadioButton id="radGrid4" x="2" y="30" label="擦除" groupName="radGrid" value="4"/>
+		<s:RadioButton id="radGrid5" x="46" y="30" label="锁定" groupName="radGrid" selected="true" value="0"/>
+		
+		<s:Button id="btnFile" x="146" y="5" label="选择背景"/>
+		<s:ComboBox x="132" y="29" id="cbSacle" width="85"  dataProvider="{mySacle}"/>
+	</s:BorderContainer>
+	<s:BorderContainer x="378" y="2" width="149" height="58">
+		<s:Button id="btnMapLayer" x="3" y="6" label="地图层"/>
+		<s:Button id="btnGridLayer" x="3" y="30" label="网格层"/>
+		<s:Button id="btnEntityLayer" x="75" y="6" label="物品层"/>
+	</s:BorderContainer>
+	<s:BorderContainer x="529" y="2" width="149" height="58">
+		<s:Button id="btnEntityInfo" x="3" y="6" label="物品库"/>
+		<s:Button id="btnMapInfo" x="75" y="6" label="地图信息"/>
+		<s:Label x="7" y="37" text="X:"/>
+		<s:TextInput id="txtMouseX" x="22" y="30" width="40" enabled="false" text="0"/>
+		<s:Label x="71" y="37" text="Y:"/>
+		<s:TextInput id="txtMouseY" x="85" y="30" width="40" enabled="false" text="0"/>
+	</s:BorderContainer>
+</s:BorderContainer>

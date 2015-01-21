@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" title="地图信息" width="336" height="230"
+			   
+			   >
+	<fx:Script>
+		<![CDATA[
+			import flashk.core.DragManager;
+			
+			import xuewan.core.LayoutManager;
+			import xuewan.mapedit.data.MapVO;
+			public var data:MapVO;
+			
+			public function show():void
+			{
+				if(this.parent==null)
+				{
+					GameMap.instance.topLayer.addChild(this);
+					LayoutManager.toCenter(this);
+					DragManager.register(this);
+					this.closeButton.addEventListener(MouseEvent.CLICK,onClose);
+					if(data)
+					{
+						this.txtName.text = data.name;
+						this.txtWidth.text = data.width.toString();
+						this.txtHeight.text = data.height.toString();
+						this.txtGridWidth.text = data.tileWidth.toString();
+						this.txtGridHeight.text = data.tileHeight.toString();
+					}
+				}else{
+					this.parent.removeChild(this);
+					DragManager.unregister(this);
+					this.closeButton.removeEventListener(MouseEvent.CLICK,onClose);
+				}
+				
+			}
+			private function onClose(evt:MouseEvent):void
+			{
+				if(this.parent)
+				{
+					this.parent.removeChild(this);
+					DragManager.unregister(this);
+					this.closeButton.removeEventListener(MouseEvent.CLICK,onClose);
+				}
+				
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Label x="43" y="32" text="地图名称:"/>
+	<s:TextInput id="txtName" x="96" y="27" width="172" enabled="false"/>
+	<s:Label x="40" y="62" text="地图宽度:"/>
+	<s:TextInput id="txtWidth" x="96" y="57" width="74" enabled="false" text="168"/>
+	<s:Label x="186" y="61" text="地图高度:"/>
+	<s:TextInput id="txtHeight" x="246" y="57" width="74" enabled="false" text="61"/>
+	<s:Label x="28" y="93" text="单元格宽度:"/>
+	<s:TextInput id="txtGridWidth" x="96" y="88" width="74" enabled="false" text="100"/>
+	<s:Label x="176" y="92" text="单元格高度:"/>
+	<s:TextInput id="txtGridHeight" x="246" y="88" width="74" enabled="false" text="50"/>
+</s:TitleWindow>
